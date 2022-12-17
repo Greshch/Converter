@@ -1,11 +1,18 @@
 // Converter.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <string>
+#include <codecvt>
+#include <locale>
 #include <iostream>
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> convert;
+	char const* str = "\xE7\xB9\x81\xE4\xBD\x93\xE5\xAD\x97";
+	std::u16string res = convert.from_bytes(str);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
